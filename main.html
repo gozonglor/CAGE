@@ -9,7 +9,7 @@
       <script src="js/bootstrap.min.js"></script>	
       <!-- Include our controllers -->
       <script src="js/main-app.js"></script>
-      <script src="js/screen1-controller.js"></script>
+      <script src="js/controllers/Screen2Ctrl.js"></script>
       <!--<script src="js/screen2.js"></script>
          <script src="js/screen3.js"></script>
          <script src="js/screen4.js"></script>-->
@@ -71,14 +71,19 @@
       </script>	
 	  
 	  <script type="text/ng-template" id="temp/screen2.html"><!--aka track your trials.html page-->
-		 	  <div id="settingUp" ng-hide="setUp.hideSetupForm" style="position: absolute; left: 29%;">
+		 	  <div id="settingUp" style="position: absolute; left: 29%;">
 		<form name="setUpForm" class="setUpCard">
-			Tournament Name: <input type="text" id="teamName" placeholder="ex. Party Like a Mock Star 2090" ng-model="setUp.newTourn.tournName"/><br><br>
-			Total Teams: <input type="number" id="totalTeams" placeholder="ex. 20" ng-model="setUp.newTourn.totalTeams"><br><br>
-			<input type="button" value="Submit" id="submit_button" class="button" ng-click="setUp.validate(setUp.newTourn.tournName, setUp.newTourn.totalTeams)">
+			Tournament Name: <input type="text" id="teamName" placeholder="ex. Party Like a Mock Star 2090" ng-model="tournament.name"/><br><br>
+			Total Teams: <input type="number" id="totalTeams" placeholder="ex. 20" ng-model="tournament.totalTeams"><br><br>
+			<input type="button" value="Submit" id="submit_button" class="button" ui-sref="screen3" ng-click="buildTournament(5, 'Anskdjas')">
 			<br>
 			<div id="errorMessage" class="errorMessage"></div>
 		</form>
+	</div>
+      </script>	
+
+	  <script type="text/ng-template" id="temp/screen3.html">
+	  <h1 ng-show="setUp.showAllTeams">Tournament {{firstBuild.tournName}}</h1>
 	</div>
       </script>	
 

@@ -14,34 +14,6 @@ angular.module('tabtracker', ['ui.router'])
 		name: 'main',
 		url: '/#',
 		templateUrl: ''
-	},
-	
-	screen1 = {
-		name: 'screen 1',
-		url: '/screen1',
-		parent: main,
-		templateUrl: '<b>what the fuck</b>'
-	},
-	
-	screen2 = {
-		name: 'screen 2',
-		url: '/screen2',
-		parent: main,
-		templateUrl: 's2.html'
-	},
-	
-	screen3 = {
-		name: 'screen 3',
-		url: '/screen3',
-		parent: main,
-		templateUrl: 's3.html'
-	},
-	
-	screen4 = {
-		name: 'screen 4',
-		url: '/screen4',
-		parent: main,
-		templateUrl: 's4.html'
 	};
 	
 	$stateProvider.state(main);
@@ -54,8 +26,15 @@ angular.module('tabtracker', ['ui.router'])
 	$stateProvider.state('screen2', {
         url: 'screen2',
         templateUrl: 'temp/screen2.html',
-        controller: '',
+        controller: 'Screen2Ctrl',
 	});
+	
+	$stateProvider.state('screen3', {
+        url: 'screen3',
+        templateUrl: 'temp/screen3.html',
+        controller: 'Screen3Ctrl',
+	});	
+	
 	// $stateProvider.state(screen2);
 	// $stateProvider.state(screen3);
 	// $stateProvider.state(screen4);
@@ -69,7 +48,9 @@ angular.module('tabtracker', ['ui.router'])
 
     .controller('NavigationCtrl', function ($scope, $state) {
 
-    $scope.setPage = function (page) {
-        $state.transitionTo(page);
-    };
-});
+		$scope.setPage = function (page) {
+			$state.transitionTo(page);
+		};
+	
+	});
+	
